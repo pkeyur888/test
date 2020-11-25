@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +30,11 @@ Route::post('/deleteBook/{book}',[BookController::class,'destroy'])->name('delet
 
 Route::get('/user',[UserController::class,'index'])->name('user');
 
+Route::get('/order/{book}',[UserController::class,'placeOrder'])->name('order');
+Route::get('/viewOrder',[OrderController::class,'show'])->name('viewOrder');
+Route::get('/viewAllOrder',[OrderController::class,'index'])->name('viewAllOrder');
 
 Route::post('/storeBook',[BookController::class,'store'])->name('storeBook');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

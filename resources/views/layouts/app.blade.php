@@ -63,16 +63,25 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('addBook') }}">
-                                        {{ __('Add Book') }}
+                                    @if( Auth::user()->userType=='user')
+                                    <a class="dropdown-item" href="{{ route('viewOrder') }}">
+                                        {{ __('view Order') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('book') }}">
-                                        {{ __('Show all Book') }}
+                                    @endif
+                                    @if( Auth::user()->userType=='admin')
+                                    <a class="dropdown-item" href="{{ route('viewAllOrder') }}">
+                                        {{ __('view Order') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('user') }}">
-                                        {{ __('Show all User') }}
-                                    </a>
-
+                                        <a class="dropdown-item" href="{{ route('addBook') }}">
+                                            {{ __('Add Book') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('book') }}">
+                                            {{ __('Show all Book') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('user') }}">
+                                            {{ __('Show all User') }}
+                                        </a>
+                                    @endif    
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

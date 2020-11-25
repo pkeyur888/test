@@ -11,4 +11,8 @@ class Book extends Model
     protected $fillable = [
         'title','description','author','price','image'
     ];
+    public function orders()
+    {   
+       return $this->hasMany(Order::class);
+    }
 }

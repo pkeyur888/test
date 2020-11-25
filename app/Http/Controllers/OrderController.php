@@ -14,7 +14,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        
+        $orders=Order::with('book')->get();
+       
+          return view('orderShow',compact('orders'));
     }
 
     /**
@@ -46,7 +49,9 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $orders=Order::with('book')->where('user_id',auth()->id())->get();
+        //  dd($orders);
+          return view('orderShow',compact('orders'));
     }
 
     /**

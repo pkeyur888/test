@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif --}}
-<table> 
+<table class="table"> 
     <tr>
         <td>Title</td>
         <td>Author</td>
